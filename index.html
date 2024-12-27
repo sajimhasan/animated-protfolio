@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header Section */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            
+            padding: 20px 50px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-top: 20px;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background: #38bdf8;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero button:hover {
+            background: #0284c7;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 50px;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        .project p {
+            font-size: 16px;
+            color: #cbd5e1;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f172a;
+            color: #94a3b8;
+        }
+
+        footer a {
+            color: #38bdf8;
+        }
+
+    </style>
+    <style>
+        .image-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+      
+        .image-container img {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      </style>
+    <style>
+        .profile-pic{
+            position: relative;
+            width: 200px; 
+            height: 200px;
+            border-radius: 50%; 
+            overflow: hidden;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); 
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .profile-pic:hover img {
+            transform: rotate(5deg);
+        }
+        </style>
+        <style>
+            .logo img{
+                width: 15%;
+                aspect-ratio: 3/2;
+                
+            }
+        </style>
+        <style>
+            .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .image-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+        </style>
+</head>
+<body>
+    <header>
+        <div class="logo">My Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skill">Skill</a></li>
+                <li><a href="#contact">contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hello, I'm a <span>Mobile Developer</span></h1>
+        <p>Specializing in iOS and Android application development.</p>
+        <button>View My Work</button>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>I am a passionate mobile developer with expertise in building high-quality iOS and Android applications. I have a deep understanding of mobile development frameworks, tools, and best practices.</p>
+        <img src="./image/sajim.png" />
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>My Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="https://via.placeholder.com/300" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>A cutting-edge mobile app for productivity.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/300" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>A robust e-commerce platform for Android and iOS.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/300" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>An innovative social networking app.</p>
+            </div>
+            
+        </div>
+    </section>
+    <section class="skill" id="skill">
+        <h2>My Skill</h2>
+        <div class="skill"> 
+            <img src="./image/1.png" />
+             
+        </div>
+      </section>
+
+    <footer id="contact">
+        <p>Connect with me on <a href="#www.linkedin.com/in/sajim-hasan-247696302">LinkedIn</a> | <a href="#">GitHub</a></p>
+        
+    </footer>
+    
+</body>
+</html>
