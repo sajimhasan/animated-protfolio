@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>3D Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -16,9 +15,10 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+            background: linear-gradient(to right, #1e3a8a, #0f172a);
             color: #fff;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -36,30 +36,39 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px 50px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-        
 
         .logo {
             font-size: 24px;
             font-weight: 600;
-            letter-spacing: 1px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            text-shadow: 0 0 15px #38bdf8;
+            animation: glowing 3s infinite;
+        }
+
+        @keyframes glowing {
+            0% { text-shadow: 0 0 5px #38bdf8, 0 0 15px #38bdf8; }
+            50% { text-shadow: 0 0 10px #1e90ff, 0 0 25px #1e90ff; }
+            100% { text-shadow: 0 0 5px #38bdf8, 0 0 15px #38bdf8; }
         }
 
         nav ul {
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
 
         nav ul li a:hover {
             color: #38bdf8;
+            text-shadow: 0 0 10px #38bdf8;
         }
 
         /* Hero Section */
@@ -71,21 +80,36 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            background: linear-gradient(to bottom right, #1e3a8a, #2563eb, #0f172a);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            perspective: 1000px;
+            animation: gradientShift 8s infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background: linear-gradient(to bottom right, #1e3a8a, #2563eb, #0f172a);
+            }
+            100% {
+                background: linear-gradient(to bottom right, #1d4ed8, #0ea5e9, #111827);
+            }
         }
 
         .hero h1 {
-            font-size: 48px;
-            animation: fadeInDown 1.5s ease;
-        }
-
-        .hero h1 span {
-            color: #38bdf8;
+            font-size: 60px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #38bdf8, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideIn 1.5s ease;
+            transform: rotateX(20deg);
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 20px;
             margin-top: 20px;
             animation: fadeInUp 1.5s ease;
+            transform: rotateY(10deg);
         }
 
         .hero button {
@@ -97,21 +121,22 @@
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .hero button:hover {
             background: #0284c7;
+            transform: scale(1.1);
         }
 
-        @keyframes fadeInDown {
+        @keyframes slideIn {
             0% {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateX(-100%);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
 
@@ -129,32 +154,107 @@
         /* About Section */
         .about {
             padding: 80px 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+            perspective: 800px;
         }
 
         .about h2 {
             font-size: 36px;
             margin-bottom: 20px;
+            color: #38bdf8;
         }
 
         .about p {
             font-size: 18px;
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }/* Skills Section */
+        .skills {
+            padding: 80px 50px;
+            background: linear-gradient(to bottom, #1e293b, #243b55);
         }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #38bdf8;
+        }
+
+        .skill-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .skill-item {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e293b;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #38bdf8;
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-pic {
+            margin: 30px auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .profile-pic:hover img {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
 
         /* Portfolio Section */
         .portfolio {
             padding: 80px 50px;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
         }
 
         .portfolio h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
+            color: #38bdf8;
         }
 
         .projects {
@@ -167,13 +267,15 @@
             background: #1e293b;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            transform: rotateX(10deg);
         }
 
         .project:hover {
-            transform: translateY(-10px);
+            transform: scale(1.1) rotateX(0deg);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
         }
 
         .project img {
@@ -182,17 +284,15 @@
             border-radius: 10px;
         }
 
-        .project h3 {
-            font-size: 24px;
-            margin: 15px 0;
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f172a;
+            color: #94a3b8;
         }
 
-        .project p {
-            font-size: 16px;
-            color: #cbd5e1;
-        }
-
-        /* Footer */
+        /* Footer Section */
         footer {
             text-align: center;
             padding: 20px;
@@ -204,73 +304,24 @@
             color: #38bdf8;
         }
 
+        footer .social-icons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer .social-icons a {
+            color: #38bdf8;
+            font-size: 24px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+            color: #0284c7;
+        }
     </style>
-    <style>
-        .image-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 20px;
-        }
-      
-        .image-container img {
-          width: 200px;
-          height: 200px;
-          object-fit: cover;
-          border-radius: 10px;
-        }
-      </style>
-    <style>
-        .profile-pic{
-            position: relative;
-            width: 200px; 
-            height: 200px;
-            border-radius: 50%; 
-            overflow: hidden;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); 
-            transition: transform 0.5s, box-shadow 0.5s;
-        }
-        
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .profile-pic:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .profile-pic:hover img {
-            transform: rotate(5deg);
-        }
-        </style>
-        <style>
-            .logo img{
-                width: 15%;
-                aspect-ratio: 3/2;
-                
-            }
-        </style>
-        <style>
-            .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .image-container img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-        </style>
 </head>
 <body>
     <header>
@@ -278,25 +329,37 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#skill">Skill</a></li>
-                <li><a href="#contact">contact</a></li>
-
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Hello, I'm a <span>Mobile Developer</span></h1>
-        <p>Specializing in iOS and Android application development.</p>
+        <h1>Hello, <span>I'm a Software Developer</span></h1>
+        <p>Specializing in building modern and scalable software solutions.</p>
         <button>View My Work</button>
     </section>
 
     <section class="about" id="about">
         <h2>About Me</h2>
-        <p>I am a passionate mobile developer with expertise in building high-quality iOS and Android applications. I have a deep understanding of mobile development frameworks, tools, and best practices.</p>
-        <img src="./image/sajim.png" />
+        <p>Hello! 👋 I’m a passionate Software Developer with expertise in building robust, scalable, and visually appealing applications. My tech stack revolves around Flutter for seamless cross-platform frontend development and Node.js for creating powerful backend solutions.</p>
+        <div class="profile-pic">
+            <img src="image/sajim2.jpeg" alt="Profile Picture">
+        </div>
+    </section><section class="skills" id="skills">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+            <div class="skill-item">HTML</div>
+            <div class="skill-item">CSS</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">React</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">Python</div>
+        </div>
     </section>
+
 
     <section class="portfolio" id="portfolio">
         <h2>My Projects</h2>
@@ -309,28 +372,22 @@
             <div class="project">
                 <img src="https://via.placeholder.com/300" alt="Project 2">
                 <h3>Project 2</h3>
-                <p>A robust e-commerce platform for Android and iOS.</p>
+                <p>An innovative e-commerce platform.</p>
             </div>
             <div class="project">
                 <img src="https://via.placeholder.com/300" alt="Project 3">
                 <h3>Project 3</h3>
-                <p>An innovative social networking app.</p>
+                <p>A creative social networking app.</p>
             </div>
-            
         </div>
     </section>
-    <section class="skill" id="skill">
-        <h2>My Skill</h2>
-        <div class="skill"> 
-            <img src="./image/1.png" />
-             
-        </div>
-      </section>
 
     <footer id="contact">
-        <p>Connect with me on <a href="#www.linkedin.com/in/sajim-hasan-247696302">LinkedIn</a> | <a href="#">GitHub</a></p>
-        
+        <p>Connect with me</p>
+        <div class="social-icons">
+            <a href="https://github.com/sajimhasan"><i class="fab fa-github"></i>github</a>
+            <a href="https://www.linkedin.com/in/sajim-hasan-247696302/"><i class="fab fa-linkedin"></i>linkedin</a>
+        </div>
     </footer>
-    
 </body>
 </html>
