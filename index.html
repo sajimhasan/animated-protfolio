@@ -98,11 +98,11 @@
         .hero h1 {
             font-size: 60px;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, #38bdf8, #ffffff);
+            background: linear-gradient(90deg,  #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: slideIn 1.5s ease;
-            transform: rotateX(20deg);
+            /* transform: rotateX(20deg); */
         }
 
         .hero p {
@@ -121,7 +121,7 @@
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+           
         }
 
         .hero button:hover {
@@ -153,126 +153,219 @@
 
         /* About Section */
         .about {
-            padding: 80px 50px;
-            text-align: center;
             background: linear-gradient(to bottom, #0f172a, #1e293b);
-            perspective: 800px;
+            padding: 64px 24px;
+            font-family: 'Poppins', 'Segoe UI', 'Arial', sans-serif;
         }
-
-        .about h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #38bdf8;
-        }
-
-        .about p {
-            font-size: 18px;
-            line-height: 1.6;
-            max-width: 800px;
+        .about-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 900px;
             margin: 0 auto;
+        }
+        .about-img {
+            flex: 0 0 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(-48px);
+            transition: opacity 0.9s cubic-bezier(0.77,0,0.175,1), transform 0.9s cubic-bezier(0.77,0,0.175,1);
+        }
+        .about-img.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .about-img img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.18), 0 2px 8px 0 rgba(30, 58, 138, 0.10);
+            object-fit: cover;
+            background: #fff;
+        }
+        .about-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(48px);
+            transition: opacity 0.9s 0.2s cubic-bezier(0.77,0,0.175,1), transform 0.9s 0.2s cubic-bezier(0.77,0,0.175,1);
+        }
+        .about-text.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #a78bfa;
+        }
+        .about-text p {
+            font-size: 18px;
             color: #cbd5e1;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+        @media (max-width: 900px) {
+            .about-container {
+                gap: 1.2rem;
+            }
+            .profile-pic {
+    margin: 30px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    animation: float 4s ease-in-out infinite;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.profile-pic:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+            .about-text h2 {
+                font-size: 28px;
+            }
+            .about-text p {
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 700px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .about-img {
+                margin-bottom: 0;
+            }
+            .about-text {
+                align-items: center;
+                text-align: center;
+                padding: 0;
+            }
         }
 
         /* Skills Section */
         .skills {
-            padding: 80px 50px;
-            background: linear-gradient(to bottom, #1e293b, #243b55);
-            overflow: hidden;
+            padding: 64px 24px;
+            background: transparent;
+            font-family: 'Poppins', 'Segoe UI', 'Arial', sans-serif;
         }
-
         .skills h2 {
             text-align: center;
             font-size: 36px;
-            margin-bottom: 50px;
-            color: #38bdf8;
-            animation: slideInDown 1s ease;
+            margin-bottom: 40px;
+            color: #a78bfa;
         }
-
-        .skill-grid {
+        .skills-img-scroll-outer {
+            width: 100%;
+            overflow: hidden;
+            background: transparent;
+            padding: 12px 0;
+        }
+        .skills-img-scroll-row {
+            width: max-content;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
+            gap: 36px;
             flex-wrap: wrap;
-            gap: 30px;
+            animation: skillsImgScrollRTL 28s linear infinite;
+            will-change: transform;
         }
-
-        .skill-item {
-            width: 150px;
-            height: 150px;
+        .skill-img-container {
             display: flex;
-            justify-content: center;
             align-items: center;
-            background: linear-gradient(145deg, #1e293b, #2a3f5c);
-            border-radius: 50%;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            color: #38bdf8;
-            font-size: 18px;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.5s ease;
-            animation: skillPop 0.8s ease forwards;
-            opacity: 0;
-            transform: scale(0.5);
+            justify-content: center;
+            background: #232946;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px 0 rgba(30, 58, 138, 0.08);
+            padding: 10px;
+            min-width: 120px;
+            min-height: 140px;
+            max-width: 180px;
+            max-height: 200px;
+            transition: box-shadow 0.3s, background 0.3s;
         }
-
-        .skill-item:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3);
-            background: linear-gradient(145deg, #2a3f5c, #1e293b);
+        .skill-img-container img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
         }
-
-        @keyframes skillPop {
+        .skill-img-container:hover img {
+            transform: scale(1.08);
+        }
+        @keyframes skillsImgScrollRTL {
             0% {
-                opacity: 0;
-                transform: scale(0.5) translateY(50px);
-            }
-            70% {
-                transform: scale(1.1) translateY(-10px);
+                transform: translateX(0);
             }
             100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: translateX(-50%);
             }
         }
-
-        .skill-item:nth-child(1) { animation-delay: 0.1s; }
-        .skill-item:nth-child(2) { animation-delay: 0.2s; }
-        .skill-item:nth-child(3) { animation-delay: 0.3s; }
-        .skill-item:nth-child(4) { animation-delay: 0.4s; }
-        .skill-item:nth-child(5) { animation-delay: 0.5s; }
-        .skill-item:nth-child(6) { animation-delay: 0.6s; }
-        .skill-item:nth-child(7) { animation-delay: 0.7s; }
-        .skill-item:nth-child(8) { animation-delay: 0.8s; }
-        .skill-item:nth-child(9) { animation-delay: 0.9s; }
-
-        .profile-pic {
-            margin: 30px auto;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .profile-pic:hover img {
-            transform: scale(1.1);
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
+        @media (max-width: 900px) {
+            .skill-img-container {
+                min-width: 120px;
+                min-height: 140px;
+                max-width: 180px;
+                max-height: 200px;
+                padding: 10px;
             }
-            50% {
-                transform: translateY(-10px);
+            .skills-img-scroll-row {
+                gap: 24px;
+            }
+            .skill-img-container img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            .skills {
+                padding: 32px 4px;
+            }
+            .skills-img-scroll-row {
+                gap: 12px;
+            }
+            .skill-img-container {
+                min-width: 120px;
+                min-height: 140px;
+                max-width: 180px;
+                max-height: 200px;
+                padding: 10px;
+            }
+            .skill-img-container img {
+                max-height: 100%;
+                max-width: 100%;
             }
         }
 
@@ -346,6 +439,158 @@
             transform: scale(1.2);
             color: #0284c7;
         }
+        .custom-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            padding: 20px 32px;
+            z-index: 1200;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            text-shadow: 0 0 15px #38bdf8;
+            animation: glowing 3s infinite;
+        }
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1301;
+            position: relative;
+        }
+        .menu-icon, .close-icon {
+            display: block;
+            width: 28px;
+            height: 28px;
+            position: relative;
+        }
+        .menu-icon:before, .menu-icon:after, .menu-icon {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #d6cef0;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.77,0,0.175,1);
+        }
+        .menu-icon {
+            top: 12px;
+        }
+        .menu-icon:before {
+            top: -10px;
+        }
+        .menu-icon:after {
+            top: 10px;
+        }
+        .menu-toggle.open .menu-icon {
+            background: transparent;
+        }
+        .menu-toggle.open .menu-icon:before {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .menu-toggle.open .menu-icon:after {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            max-width: 90vw;
+            height: 100vh;
+            background: #181c2a;
+            box-shadow: -2px 0 24px 0 #0008;
+            z-index: 1300;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 32px 0 0 0;
+            transition: right 0.32s cubic-bezier(0.77,0,0.175,1);
+        }
+        .sidebar-menu.open {
+            right: 0;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.45);
+            z-index: 1299;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s cubic-bezier(0.77,0,0.175,1);
+        }
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .close-menu {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 1302;
+            cursor: pointer;
+        }
+        .sidebar-links {
+            list-style: none;
+            margin: 60px 0 0 0;
+            padding: 0 32px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .sidebar-links li a {
+            color: #a78bfa;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .sidebar-links li a:hover, .sidebar-links li a:focus {
+            color: #38bdf8;
+            outline: none;
+        }
+        @media (max-width: 600px) {
+            .custom-header {
+                padding: 14px 8px;
+            }
+            .sidebar-menu {
+                width: 90vw;
+                max-width: 98vw;
+                padding: 24px 0 0 0;
+            }
+            .sidebar-links {
+                padding: 0 12px;
+                gap: 22px;
+            }
+            .sidebar-links li a {
+                font-size: 1.1rem;
+            }
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -356,21 +601,134 @@
                     block: 'start'
                 });
             });
+
+            // About section fade-in on scroll
+            function handleAboutFadeIn() {
+                const aboutImg = document.getElementById('about-img');
+                const aboutText = document.querySelector('.about-text');
+                if (!aboutImg || !aboutText) return;
+                const rectImg = aboutImg.getBoundingClientRect();
+                const rectText = aboutText.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rectImg.top < windowHeight - 80) {
+                    aboutImg.classList.add('visible');
+                }
+                if (rectText.top < windowHeight - 80) {
+                    aboutText.classList.add('visible');
+                }
+            }
+            window.addEventListener('scroll', handleAboutFadeIn);
+            handleAboutFadeIn();
+
+            // Skill bar animation on scroll
+            let skillBarsAnimated = false;
+            function animateSkillBars() {
+                if (skillBarsAnimated) return;
+                const skillsSection = document.getElementById('skills');
+                if (!skillsSection) return;
+                const rect = skillsSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    const bars = document.querySelectorAll('.skill-bar-fill.looped');
+                    bars.forEach((bar, i) => {
+                        setTimeout(() => {
+                            bar.style.width = bar.getAttribute('data-skill') + '%';
+                        }, i * 200);
+                    });
+                    skillBarsAnimated = true;
+                }
+            }
+            window.addEventListener('scroll', animateSkillBars);
+            animateSkillBars(); // in case already in view
+        });
+        // Hamburger menu logic
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const focusableMenuElements = () => sidebarMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+        let lastFocusedElement = null;
+
+        function openMenu() {
+            sidebarMenu.classList.add('open');
+            menuOverlay.classList.add('open');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            sidebarMenu.setAttribute('aria-hidden', 'false');
+            lastFocusedElement = document.activeElement;
+            sidebarMenu.focus();
+            // Trap focus
+            document.addEventListener('keydown', trapFocus);
+        }
+        function closeMenu() {
+            sidebarMenu.classList.remove('open');
+            menuOverlay.classList.remove('open');
+            menuToggle.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            sidebarMenu.setAttribute('aria-hidden', 'true');
+            if (lastFocusedElement) lastFocusedElement.focus();
+            document.removeEventListener('keydown', trapFocus);
+        }
+        function trapFocus(e) {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+            if (e.key !== 'Tab') return;
+            const focusables = focusableMenuElements();
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        }
+        menuToggle.addEventListener('click', () => {
+            if (sidebarMenu.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        // Close menu on click of any link
+        sidebarMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        // Accessibility: close on focus outside
+        sidebarMenu.addEventListener('focusout', (e) => {
+            if (!sidebarMenu.contains(e.relatedTarget)) {
+                closeMenu();
+            }
         });
     </script>
 </head>
 <body>
-    <header>
-        <div class="logo">My Portfolio</div>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="custom-header">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="sidebarMenu">
+            <span class="menu-icon"></span>
+        </button>
     </header>
+    <div class="menu-overlay" id="menuOverlay" tabindex="-1"></div>
+    <nav class="sidebar-menu" id="sidebarMenu" aria-hidden="true" tabindex="-1">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <span class="close-icon">&times;</span>
+        </button>
+        <ul class="sidebar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <section class="hero">
         <h1>Hello, <span>I'm a Software Developer</span></h1>
@@ -379,22 +737,39 @@
     </section>
 
     <section class="about" id="about">
-        <h2>About Me</h2>
-        <p>Hello! 👋 I'm a passionate Software Developer with expertise in building robust, scalable, and visually appealing applications. My tech stack revolves around Flutter for seamless cross-platform frontend development and Node.js for creating powerful backend solutions.</p>
-        <div class="profile-pic">
-            <img src="image/sajim2.jpeg" alt="Profile Picture">
+        <div class="about-container">
+            <div class="about-img" id="about-img">
+                <div class="profile-pic">
+                    <img src="image/sajim2.jpeg" alt="Profile Picture">
+                </div>
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I’m a software developer driven by curiosity and a passion for solving problems through code. I enjoy building meaningful projects and constantly exploring new ideas that challenge the way we think about technology. Whether working independently or with a team, I value thoughtful design, clear communication, and purposeful development. My goal is to create software that not only works—but makes a difference.</p>
+            </div>
         </div>
     </section>
 
     <section class="skills" id="skills">
         <h2>Skills</h2>
-        <div class="skill-grid">
-            <div class="skill-item">Flutter</div>
-            <div class="skill-item">UI/UX Design</div>
-            <div class="skill-item">Java</div>
-            <div class="skill-item">Firebase</div>
-            <div class="skill-item">API Integration</div>
-            <div class="skill-item">Real-time DB</div>
+        <div class="skills-img-scroll-outer">
+            <div class="skills-img-scroll-row">
+                <div class="skill-img-container"><img src="image/project1.jpg" alt="Skill 1"></div>
+                <div class="skill-img-container"><img src="image/project2.jpg" alt="Skill 2"></div>
+                <div class="skill-img-container"><img src="image/project5.jpg" alt="Skill 3"></div>
+                <div class="skill-img-container"><img src="image/project6.jpg" alt="Skill 4"></div>
+                <div class="skill-img-container"><img src="image/project7.jpg" alt="Skill 5"></div>
+                <div class="skill-img-container"><img src="image/ios.png" alt="Skill 6"></div>
+
+
+
+                <div class="skill-img-container"><img src="image/project1.jpg" alt="Skill 1"></div>
+                <div class="skill-img-container"><img src="image/project2.jpg" alt="Skill 2"></div>
+                <div class="skill-img-container"><img src="image/project5.jpg" alt="Skill 3"></div>
+                <div class="skill-img-container"><img src="image/project6.jpg" alt="Skill 4"></div>
+                <div class="skill-img-container"><img src="image/project7.jpg" alt="Skill 5"></div>
+                <div class="skill-img-container"><img src="image/ios.png" alt="Skill 6"></div>
+            </div>
         </div>
     </section>
 
@@ -428,3 +803,10 @@
     </footer>
 </body>
 </html>
+
+<!-- 
+
+remove the heder margin and menu is not work !! 
+add the correct skill picture!!
+
+  -->
