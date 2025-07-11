@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,9 +57,17 @@
         }
 
         @keyframes glowing {
-            0% { text-shadow: 0 0 5px #38bdf8, 0 0 15px #38bdf8; }
-            50% { text-shadow: 0 0 10px #1e90ff, 0 0 25px #1e90ff; }
-            100% { text-shadow: 0 0 5px #38bdf8, 0 0 15px #38bdf8; }
+            0% {
+                text-shadow: 0 0 5px #38bdf8, 0 0 15px #38bdf8;
+            }
+
+            50% {
+                text-shadow: 0 0 10px #1e90ff, 0 0 25px #1e90ff;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #38bdf8, 0 0 15px #38bdf8;
+            }
         }
 
         nav ul {
@@ -90,6 +99,7 @@
             0% {
                 background: linear-gradient(to bottom right, #1e3a8a, #2563eb, #0f172a);
             }
+
             100% {
                 background: linear-gradient(to bottom right, #1d4ed8, #0ea5e9, #111827);
             }
@@ -98,7 +108,7 @@
         .hero h1 {
             font-size: 60px;
             margin-bottom: 20px;
-            background: linear-gradient(90deg,  #ffffff);
+            background: linear-gradient(90deg, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: slideIn 1.5s ease;
@@ -110,6 +120,7 @@
             margin-top: 20px;
             animation: fadeInUp 1.5s ease;
             transform: rotateY(10deg);
+            transition: background 0.3s, transform 0.3s;
         }
 
         .hero button {
@@ -121,7 +132,7 @@
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
-           
+
         }
 
         .hero button:hover {
@@ -134,6 +145,7 @@
                 opacity: 0;
                 transform: translateX(-100%);
             }
+
             100% {
                 opacity: 1;
                 transform: translateX(0);
@@ -145,6 +157,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -153,143 +166,143 @@
 
         /* About Section */
         .about {
-            background: linear-gradient(to bottom, #0f172a, #1e293b);
-            padding: 64px 24px;
-            font-family: 'Poppins', 'Segoe UI', 'Arial', sans-serif;
-        }
-        .about-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .about-img {
-            flex: 0 0 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(-48px);
-            transition: opacity 0.9s cubic-bezier(0.77,0,0.175,1), transform 0.9s cubic-bezier(0.77,0,0.175,1);
-        }
-        .about-img.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .about-img img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.18), 0 2px 8px 0 rgba(30, 58, 138, 0.10);
-            object-fit: cover;
-            background: #fff;
-        }
-        .about-text {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(48px);
-            transition: opacity 0.9s 0.2s cubic-bezier(0.77,0,0.175,1), transform 0.9s 0.2s cubic-bezier(0.77,0,0.175,1);
-        }
-        .about-text.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .about-text h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: #a78bfa;
-        }
-        .about-text p {
-            font-size: 18px;
-            color: #cbd5e1;
-            line-height: 1.6;
-            max-width: 500px;
-        }
-        @media (max-width: 900px) {
-            .about-container {
-                gap: 1.2rem;
-            }
-            .profile-pic {
-    margin: 30px auto;
-    width: 200px;
-    height: 200px;
+    padding: 40px 20px;
+    background-color: transparent;
+    color: white;
+  }
+
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+  }
+
+  /* Image Wrapper */
+  .profile-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .profile-img {
+    max-width: 200px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
+    display: block;
+    box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.18),
+      0 2px 8px 0 rgba(30, 58, 138, 0.1);
+    border: 6px solid transparent;
+    background-clip: padding-box;
     position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    animation: float 4s ease-in-out infinite;
-}
+    z-index: 1;
+    transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+      box-shadow 0.35s, border-color 0.35s;
+    animation: profile-float 4s ease-in-out infinite,
+      profile-glow-pulse 2.8s ease-in-out infinite;
+  }
 
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
+  .profile-img-wrapper:hover .profile-img {
+    transform: scale(1.07);
+    box-shadow: 0 12px 48px 0 #a78bfa55,
+      0 8px 32px 0 rgba(56, 189, 248, 0.28);
+    border-color: #a78bfa;
+    animation: profile-float 4s ease-in-out infinite,
+      profile-glow-pulse-hover 1.2s ease-in-out infinite;
+  }
 
-.profile-pic:hover img {
-    transform: scale(1.1);
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0);
+  /* Animations */
+  @keyframes profile-float {
+    0%, 100% {
+      transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+      transform: translateY(-10px);
     }
-    100% {
-        transform: translateY(0);
-    }
-}
-            .about-text h2 {
-                font-size: 28px;
-            }
-            .about-text p {
-                font-size: 16px;
-            }
-        }
-        @media (max-width: 700px) {
-            .about-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
-            }
-            .about-img {
-                margin-bottom: 0;
-            }
-            .about-text {
-                align-items: center;
-                text-align: center;
-                padding: 0;
-            }
-        }
+  }
 
+  @keyframes profile-glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 #a78bfa55,
+        0 8px 32px 0 rgba(56, 189, 248, 0.18);
+      border-color: #a78bfa44;
+    }
+    50% {
+      box-shadow: 0 0 32px 8px #a78bfa88,
+        0 8px 32px 0 rgba(56, 189, 248, 0.18);
+      border-color: #a78bfa;
+    }
+  }
+
+  @keyframes profile-glow-pulse-hover {
+    0%, 100% {
+      box-shadow: 0 0 0 0 #a78bfa99,
+        0 12px 48px 0 #a78bfa55;
+      border-color: #a78bfa;
+    }
+    50% {
+      box-shadow: 0 0 48px 16px #a78bfaee,
+        0 12px 48px 0 #a78bfa99;
+      border-color: #a78bfa;
+    }
+  }
+
+  /* Text Block */
+  .about-text {
+    max-width: 600px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-text {
+      padding: 0 10px;
+    }
+
+    .profile-img {
+      max-width: 140px;
+    }
+  }
         /* Skills Section */
         .skills {
             padding: 64px 24px;
             background: transparent;
             font-family: 'Poppins', 'Segoe UI', 'Arial', sans-serif;
         }
+
         .skills h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 40px;
             color: #a78bfa;
         }
+
         .skills-img-scroll-outer {
             width: 100%;
             overflow: hidden;
             background: transparent;
             padding: 12px 0;
         }
+
         .skills-img-scroll-row {
             width: max-content;
             display: flex;
@@ -299,6 +312,7 @@
             animation: skillsImgScrollRTL 28s linear infinite;
             will-change: transform;
         }
+
         .skill-img-container {
             display: flex;
             align-items: center;
@@ -313,6 +327,7 @@
             max-height: 200px;
             transition: box-shadow 0.3s, background 0.3s;
         }
+
         .skill-img-container img {
             max-height: 100%;
             max-width: 100%;
@@ -320,19 +335,23 @@
             height: auto;
             display: block;
             border-radius: 12px;
-            transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         }
+
         .skill-img-container:hover img {
             transform: scale(1.08);
         }
+
         @keyframes skillsImgScrollRTL {
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
         }
+
         @media (max-width: 900px) {
             .skill-img-container {
                 min-width: 120px;
@@ -341,21 +360,26 @@
                 max-height: 200px;
                 padding: 10px;
             }
+
             .skills-img-scroll-row {
                 gap: 24px;
             }
+
             .skill-img-container img {
                 max-height: 100%;
                 max-width: 100%;
             }
         }
+
         @media (max-width: 600px) {
             .skills {
                 padding: 32px 4px;
             }
+
             .skills-img-scroll-row {
                 gap: 12px;
             }
+
             .skill-img-container {
                 min-width: 120px;
                 min-height: 140px;
@@ -363,6 +387,7 @@
                 max-height: 200px;
                 padding: 10px;
             }
+
             .skill-img-container img {
                 max-height: 100%;
                 max-width: 100%;
@@ -439,6 +464,7 @@
             transform: scale(1.2);
             color: #0284c7;
         }
+
         .custom-header {
             position: fixed;
             top: 0;
@@ -452,6 +478,7 @@
             align-items: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
+
         .logo {
             font-size: 24px;
             font-weight: 600;
@@ -461,6 +488,7 @@
             text-shadow: 0 0 15px #38bdf8;
             animation: glowing 3s infinite;
         }
+
         .menu-toggle {
             background: none;
             border: none;
@@ -473,13 +501,18 @@
             z-index: 1301;
             position: relative;
         }
-        .menu-icon, .close-icon {
+
+        .menu-icon,
+        .close-icon {
             display: block;
             width: 28px;
             height: 28px;
             position: relative;
         }
-        .menu-icon:before, .menu-icon:after, .menu-icon {
+
+        .menu-icon:before,
+        .menu-icon:after,
+        .menu-icon {
             content: '';
             display: block;
             position: absolute;
@@ -488,26 +521,33 @@
             height: 4px;
             background: #d6cef0;
             border-radius: 2px;
-            transition: all 0.3s cubic-bezier(0.77,0,0.175,1);
+            transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
         }
+
         .menu-icon {
             top: 12px;
         }
+
         .menu-icon:before {
             top: -10px;
         }
+
         .menu-icon:after {
             top: 10px;
         }
+
         .menu-toggle.open .menu-icon {
             background: transparent;
         }
+
         .menu-toggle.open .menu-icon:before {
             transform: translateY(10px) rotate(45deg);
         }
+
         .menu-toggle.open .menu-icon:after {
             transform: translateY(-10px) rotate(-45deg);
         }
+
         .sidebar-menu {
             position: fixed;
             top: 0;
@@ -522,27 +562,31 @@
             flex-direction: column;
             align-items: flex-end;
             padding: 32px 0 0 0;
-            transition: right 0.32s cubic-bezier(0.77,0,0.175,1);
+            transition: right 0.32s cubic-bezier(0.77, 0, 0.175, 1);
         }
+
         .sidebar-menu.open {
             right: 0;
         }
+
         .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.45);
+            background: rgba(0, 0, 0, 0.45);
             z-index: 1299;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s cubic-bezier(0.77,0,0.175,1);
+            transition: opacity 0.25s cubic-bezier(0.77, 0, 0.175, 1);
         }
+
         .menu-overlay.open {
             opacity: 1;
             pointer-events: auto;
         }
+
         .close-menu {
             background: none;
             border: none;
@@ -554,6 +598,7 @@
             z-index: 1302;
             cursor: pointer;
         }
+
         .sidebar-links {
             list-style: none;
             margin: 60px 0 0 0;
@@ -563,6 +608,7 @@
             flex-direction: column;
             gap: 32px;
         }
+
         .sidebar-links li a {
             color: #a78bfa;
             font-size: 1.5rem;
@@ -570,33 +616,39 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .sidebar-links li a:hover, .sidebar-links li a:focus {
+
+        .sidebar-links li a:hover,
+        .sidebar-links li a:focus {
             color: #38bdf8;
             outline: none;
         }
+
         @media (max-width: 600px) {
             .custom-header {
                 padding: 14px 8px;
             }
+
             .sidebar-menu {
                 width: 90vw;
                 max-width: 98vw;
                 padding: 24px 0 0 0;
             }
+
             .sidebar-links {
                 padding: 0 12px;
                 gap: 22px;
             }
+
             .sidebar-links li a {
                 font-size: 1.1rem;
             }
         }
     </style>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const viewWorkButton = document.querySelector('.hero button');
-            viewWorkButton.addEventListener('click', function() {
-                document.querySelector('#portfolio').scrollIntoView({ 
+            viewWorkButton.addEventListener('click', function () {
+                document.querySelector('#portfolio').scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -710,9 +762,11 @@
         });
     </script>
 </head>
+
 <body>
     <header class="custom-header">
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="sidebarMenu">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"
+            aria-controls="sidebarMenu">
             <span class="menu-icon"></span>
         </button>
     </header>
@@ -733,21 +787,25 @@
     <section class="hero">
         <h1>Hello, <span>I'm a Software Developer</span></h1>
         <p>Specializing in building modern and scalable software solutions.</p>
-        <button onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+        <button onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">View My
+            Work</button>
     </section>
 
     <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-img" id="about-img">
-                <div class="profile-pic">
-                    <img src="image/sajim2.jpeg" alt="Profile Picture">
-                </div>
+        <div class="about-content">
+            <div class="profile-img-wrapper">
+              <img src="image/sajim2.jpeg" alt="Profile Picture" class="profile-img" />
             </div>
             <div class="about-text">
-                <h2>About Me</h2>
-                <p>I’m a software developer driven by curiosity and a passion for solving problems through code. I enjoy building meaningful projects and constantly exploring new ideas that challenge the way we think about technology. Whether working independently or with a team, I value thoughtful design, clear communication, and purposeful development. My goal is to create software that not only works—but makes a difference.</p>
+              <h2>About Me</h2>
+              <p>
+                I’m a software developer driven by curiosity and a passion for solving problems through code.
+                I enjoy building meaningful projects and constantly exploring new ideas that challenge the way we think about technology.
+                Whether working independently or with a team, I value thoughtful design, clear communication, and purposeful development.
+                My goal is to create software that not only works—but makes a difference.
+              </p>
             </div>
-        </div>
+          </div>
     </section>
 
     <section class="skills" id="skills">
@@ -766,7 +824,7 @@
                 <div class="skill-img-container"><img src="image/17.jpg" alt="Skill 1"></div>
                 <div class="skill-img-container"><img src="image/19.png" alt="Skill 2"></div>
                 <div class="skill-img-container"><img src="image/Java-Logo.jpg" alt="Skill 3"></div>
-                <div class="skill-img-container"><img src="image/project6.jpg" alt="Skill 4"></div>
+                <div class="skill-img-container"><img src="image/20.png" alt="Skill 4"></div>
                 <div class="skill-img-container"><img src="image/project7.jpg" alt="Skill 5"></div>
                 <div class="skill-img-container"><img src="image/ios.png" alt="Skill 6"></div>
             </div>
@@ -802,11 +860,13 @@
         </div>
     </footer>
 </body>
+
 </html>
 
 <!-- 
 
 remove the heder margin and menu is not work !! 
 add the correct skill picture!!
+profile iamge animations is gone !!
 
   -->
