@@ -476,8 +476,6 @@
             background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
             border-radius: 10px;
             transition: transform 0.3s ease;
-            font-size: 1.75rem;
-            color: white;
         }
 
         .skill-card:hover .skill-icon {
@@ -689,10 +687,6 @@
 
         /* ===== Responsive Design ===== */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 1.5rem;
-            }
-
             .hero {
                 padding: 5rem 1rem 2rem;
             }
@@ -781,324 +775,6 @@
             }
         }
     </style>
-</head>
-
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-logo">Sajim Hasan</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-            <span class="menu-icon"></span>
-        </button>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <div class="sidebar-menu" id="sidebarMenu">
-        <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
-        <ul class="sidebar-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Sajim Hasan</span></h1>
-            <p>Full Stack Developer passionate about creating innovative solutions and building scalable software. I specialize in turning ideas into elegant, functional applications.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
-                    <i class="fas fa-arrow-right"></i> View My Work
-                </button>
-                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="profile-img-wrapper">
-                <img src="image/sajim2.jpeg" alt="Sajim Hasan Profile Picture" class="profile-img">
-            </div>
-            <div class="about-text">
-                <h2>Who I Am</h2>
-                <p>I'm a software developer driven by curiosity and a passion for solving problems through code. I enjoy building meaningful projects and constantly exploring new ideas that challenge the way we think about technology.</p>
-                <p>With expertise in full-stack development, I create applications that are not only functional but also intuitive and beautiful. Whether working independently or collaborating with teams, I value thoughtful design, clear communication, and purposeful development.</p>
-                <p>My goal is to develop software that makes a real difference—software that users love and that businesses can rely on. I'm always eager to learn new technologies and methodologies to stay at the forefront of web development.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-            <div class="skill-card">
-                <div class="skill-name" style="font-weight: 700; color: #06b6d4;">Core Skills</div>
-                <ul style="margin-top:0.5rem; text-align:left; color:#cbd5e1; font-size:0.95rem; line-height:1.5; list-style:none; padding:0;">
-                    <li>• Full Stack Development</li>
-                    <li>• Clean UI &amp; Responsive Layouts</li>
-                    <li>• REST API Development</li>
-                    <li>• Database Modeling</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-name" style="font-weight: 700; color: #06b6d4;">Frontend</div>
-                <ul style="margin-top:0.5rem; text-align:left; color:#cbd5e1; font-size:0.95rem; line-height:1.5; list-style:none; padding:0;">
-                    <li>• HTML5, CSS3, JavaScript (ES6+)</li>
-                    <li>• React.js, Next.js</li>
-                    <li>• Tailwind CSS, ShadCN UI</li>
-                    <li>• Redux Toolkit / Context API</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-name" style="font-weight: 700; color: #06b6d4;">Backend</div>
-                <ul style="margin-top:0.5rem; text-align:left; color:#cbd5e1; font-size:0.95rem; line-height:1.5; list-style:none; padding:0;">
-                    <li>• Node.js, Express.js</li>
-                    <li>• Auth (JWT, Cookies)</li>
-                    <li>• REST API</li>
-                    <li>• MVC Architecture</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-name" style="font-weight: 700; color: #06b6d4;">Database</div>
-                <ul style="margin-top:0.5rem; text-align:left; color:#cbd5e1; font-size:0.95rem; line-height:1.5; list-style:none; padding:0;">
-                    <li>• MongoDB (Mongoose)</li>
-                    <li>• Firebase (Auth, Firestore)</li>
-                    <li>• MySQL basics</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-name" style="font-weight: 700; color: #06b6d4;">Tools</div>
-                <ul style="margin-top:0.5rem; text-align:left; color:#cbd5e1; font-size:0.95rem; line-height:1.5; list-style:none; padding:0;">
-                    <li>• Git, GitHub</li>
-                    <li>• Postman</li>
-                    <li>• Vercel, Netlify, Render</li>
-                    <li>• VS Code, Terminal, NPM/Yarn</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-name" style="font-weight: 700; color: #06b6d4;">Additional</div>
-                <ul style="margin-top:0.5rem; text-align:left; color:#cbd5e1; font-size:0.95rem; line-height:1.5; list-style:none; padding:0;">
-                    <li>• API Integration</li>
-                    <li>• UX/UI best practices</li>
-                    <li>• Performance Optimization</li>
-                    <li>• Debugging &amp; Problem Solving</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h2 class="section-title">Projects — Case Studies</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="image/project7.jpg" alt="Modern E-commerce Web App" loading="lazy" width="1200" height="700">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Modern E-commerce Web App</h3>
-                    <p class="project-desc">A full-stack e-commerce app with secure authentication, product listing, filtering, and cart features.</p>
-                    <strong>Features:</strong>
-                    <ul style="margin:0.5rem 0 0.5rem 1rem; color:#cbd5e1; list-style:none; padding:0;">
-                        <li>• JWT authentication</li>
-                        <li>• Add to cart</li>
-                        <li>• Product search/filter</li>
-                        <li>• Admin dashboard</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">JWT</span>
-                    </div>
-                    <div style="margin-top:0.75rem; color:#cbd5e1; font-weight:600; font-size:0.95rem;">My Role: Full frontend, backend API, DB modeling</div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/sajimhasan" class="project-btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-btn live" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="image/project6.jpg" alt="Task Tracker App" loading="lazy" width="1200" height="700">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Task Tracker App</h3>
-                    <p class="project-desc">A task management and productivity app designed with clean UI and full CRUD operations.</p>
-                    <strong>Features:</strong>
-                    <ul style="margin:0.5rem 0 0.5rem 1rem; color:#cbd5e1; list-style:none; padding:0;">
-                        <li>• Login system</li>
-                        <li>• Add/Edit/Delete tasks</li>
-                        <li>• Priority labels</li>
-                        <li>• Filters &amp; sorting</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">Tailwind</span>
-                    </div>
-                    <div style="margin-top:0.75rem; color:#cbd5e1; font-weight:600; font-size:0.95rem;">My Role: UI/UX design + full CRUD API</div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/sajimhasan" class="project-btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-btn live" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="image/project5.jpg" alt="Weather App" loading="lazy" width="1200" height="700">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Weather App (API-based)</h3>
-                    <p class="project-desc">A real-time weather dashboard with clean and minimal UI.</p>
-                    <strong>Features:</strong>
-                    <ul style="margin:0.5rem 0 0.5rem 1rem; color:#cbd5e1; list-style:none; padding:0;">
-                        <li>• Real-time data</li>
-                        <li>• City search</li>
-                        <li>• Auto-location</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">OpenWeather API</span>
-                    </div>
-                    <div style="margin-top:0.75rem; color:#cbd5e1; font-weight:600; font-size:0.95rem;">My Role: UI + API integration</div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/sajimhasan" class="project-btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-btn live" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="image/project4.jpg" alt="Secure Authentication System" loading="lazy" width="1200" height="700">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Secure Authentication System</h3>
-                    <p class="project-desc">A real-world authentication system with secure cookies and token rotation.</p>
-                    <strong>Features:</strong>
-                    <ul style="margin:0.5rem 0 0.5rem 1rem; color:#cbd5e1; list-style:none; padding:0;">
-                        <li>• Login/Register</li>
-                        <li>• Refresh token system</li>
-                        <li>• HttpOnly cookies</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">JWT</span>
-                    </div>
-                    <div style="margin-top:0.75rem; color:#cbd5e1; font-weight:600; font-size:0.95rem;">My Role: Backend architecture + frontend integration</div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/sajimhasan" class="project-btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-btn live" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="image/project3.jpg" alt="Blog CMS Admin Dashboard" loading="lazy" width="1200" height="700">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Blog CMS (Admin Dashboard)</h3>
-                    <p class="project-desc">A complete blog management system with admin dashboard and CRUD features.</p>
-                    <strong>Features:</strong>
-                    <ul style="margin:0.5rem 0 0.5rem 1rem; color:#cbd5e1; list-style:none; padding:0;">
-                        <li>• Admin auth</li>
-                        <li>• Create/Edit/Delete posts</li>
-                        <li>• Rich text editor</li>
-                        <li>• SEO-friendly blog pages</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Next.js</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">Tailwind</span>
-                    </div>
-                    <div style="margin-top:0.75rem; color:#cbd5e1; font-weight:600; font-size:0.95rem;">My Role: Dashboard UI + CRUD APIs</div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/sajimhasan" class="project-btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-btn live" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p class="contact-text">I'm always interested in hearing about new projects and opportunities. Feel free to reach out if you'd like to collaborate or just want to say hello!</p>
-            <div class="social-links">
-                <a href="https://github.com/sajimhasan" target="_blank" class="social-link" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/sajim-hasan-b2258a389/" target="_blank" class="social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="mailto:sajimhasaann@example.com" class="social-link" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <button class="btn btn-primary" onclick="window.location.href='mailto:sajimhasaann@gmail.com'">
-                <i class="fas fa-paper-plane"></i> Send Me an Email
-            </button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Sajim Hasan. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #06b6d4;"></i> and code.</p>
-    </footer>
-
     <script>
         // Menu Toggle Functionality
         const menuToggle = document.getElementById('menuToggle');
@@ -1170,6 +846,112 @@
             observer.observe(el);
         });
     </script>
+</head>
+
+<body>
+    <header class="custom-header">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"
+            aria-controls="sidebarMenu">
+            <span class="menu-icon"></span>
+        </button>
+    </header>
+    <div class="menu-overlay" id="menuOverlay" tabindex="-1"></div>
+    <nav class="sidebar-menu" id="sidebarMenu" aria-hidden="true" tabindex="-1">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <span class="close-icon">&times;</span>
+        </button>
+        <ul class="sidebar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Hello, <span>I'm a Software Developer</span></h1>
+        <p>Specializing in building modern and scalable software solutions.</p>
+        <button onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">View My
+            Work</button>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="profile-img-wrapper">
+              <img src="image/sajim2.jpeg" alt="Profile Picture" class="profile-img" />
+            </div>
+            <div class="about-text">
+              <h2>About Me</h2>
+              <p>
+                I’m a software developer driven by curiosity and a passion for solving problems through code.
+                I enjoy building meaningful projects and constantly exploring new ideas that challenge the way we think about technology.
+                Whether working independently or with a team, I value thoughtful design, clear communication, and purposeful development.
+                My goal is to create software that not only works—but makes a difference.
+              </p>
+            </div>
+          </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2>Skills</h2>
+        <div class="skills-img-scroll-outer">
+            <div class="skills-img-scroll-row">
+                <div class="skill-img-container"><img src="image/12.jpg" alt="Skill 1"></div>
+                <div class="skill-img-container"><img src="image/13.png" alt="Skill 2"></div>
+                <div class="skill-img-container"><img src="image/14.png" alt="Skill 3"></div>
+                <div class="skill-img-container"><img src="image/15.png" alt="Skill 4"></div>
+                <div class="skill-img-container"><img src="image/16.png" alt="Skill 5"></div>
+                <div class="skill-img-container"><img src="image/11.avif" alt="Skill 6"></div>
+
+
+
+                <div class="skill-img-container"><img src="image/17.jpg" alt="Skill 1"></div>
+                <div class="skill-img-container"><img src="image/19.png" alt="Skill 2"></div>
+                <div class="skill-img-container"><img src="image/Java-Logo.jpg" alt="Skill 3"></div>
+                <div class="skill-img-container"><img src="image/20.png" alt="Skill 4"></div>
+                <div class="skill-img-container"><img src="image/project7.jpg" alt="Skill 5"></div>
+                <div class="skill-img-container"><img src="image/ios.png" alt="Skill 6"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>My Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="image/project7.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>A cutting-edge mobile app for productivity.</p>
+            </div>
+            <div class="project">
+                <img src="image/project6.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>An innovative e-commerce platform.</p>
+            </div>
+            <div class="project">
+                <img src="image/project5.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>A creative social networking app.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Connect with me</p>
+        <div class="social-icons">
+            <a href="https://github.com/sajimhasan"><i class="fab fa-github"></i>github</a>
+            <a href="https://www.linkedin.com/in/sajim-hasan-247696302/"><i class="fab fa-linkedin"></i>linkedin</a>
+        </div>
+    </footer>
 </body>
 
 </html>
+
+<!-- 
+
+remove the heder margin and menu is not work !! 
+add the correct skill picture!!
+profile iamge animations is gone !!
+
+  -->
