@@ -812,8 +812,8 @@
             <h1>Hi, I'm <span class="highlight">Sajim Hasan</span></h1>
             <p>Full Stack Developer passionate about creating innovative solutions and building scalable software. I specialize in turning ideas into elegant, functional applications.</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
-                    <i class="fas fa-arrow-right"></i> View My Work
+                <button class="btn btn-primary" onclick="downloadResume()">
+                    <i class="fas fa-download"></i> Download My Resume
                 </button>
                 <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
                     <i class="fas fa-envelope"></i> Get In Touch
@@ -1104,6 +1104,20 @@
     </footer>
 
     <script>
+        // Resume Download Function
+        function downloadResume() {
+            const userConfirmed = confirm('Are you sure you want to download my resume?\n\nThis will download "Sajim Hasan - Resume.pdf" to your device.');
+            
+            if (userConfirmed) {
+                const link = document.createElement('a');
+                link.href = 'image/sajim-portfolio.pdf';
+                link.download = 'Sajim-Hasan-Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
         // Menu Toggle Functionality
         const menuToggle = document.getElementById('menuToggle');
         const sidebarMenu = document.getElementById('sidebarMenu');
